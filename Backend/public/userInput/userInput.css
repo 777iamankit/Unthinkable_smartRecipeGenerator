@@ -1,0 +1,82 @@
+ body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f3f6fa;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      margin-top: 80px;
+      background: white;
+      padding: 20px 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      min-width: 350px;
+      max-width: 600px;
+    }
+
+    .selectedIngredients {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    #ingredientInput {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    #ingredientInput:focus {
+      border-color: #4CAF50;
+    }
+
+    #ingredientList {
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-top: 10px;
+      padding: 5px;
+      background-color: #fafafa;
+    }
+
+    #ingredientList div {
+      padding: 10px;
+      margin: 3px 0;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    #ingredientList div:hover {
+      background: #d8f3dc;
+    }
+
+    .ingredient-tag {
+      display: inline-block;
+      background: #4CAF50;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .ingredient-tag:hover {
+      background: #45a049;
+    }
+
+    .toggle-content{
+      display: none;
+    }

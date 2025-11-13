@@ -1,0 +1,14 @@
+const dietryPref=document.querySelector('.dietry-pref');
+const toggleContent=document.querySelector('.toggle-content');
+
+dietryPref.addEventListener('click',()=>{
+  toggleContent.style.display='block';
+})
+
+const options=document.querySelectorAll('.toggle-content li');
+options.forEach(num=>{
+  num.addEventListener('click',()=>{
+    dietryPref.textContent=num.textContent;
+    toggleContent.style.display='none';
+  })
+})

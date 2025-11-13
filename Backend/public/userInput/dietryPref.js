@@ -7,8 +7,11 @@ dietryPref.addEventListener('click',()=>{
 
 const options=document.querySelectorAll('.toggle-content li');
 options.forEach(num=>{
+  num.style.cursor='pointer';
   num.addEventListener('click',()=>{
     dietryPref.textContent=num.textContent;
     toggleContent.style.display='none';
   })
 })
+
+

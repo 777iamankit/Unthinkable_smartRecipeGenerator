@@ -55,7 +55,32 @@ for(let i=0;i<recipeJson.length;i++){
 }
 
 if(flag==false){
-  recipes.textContent="cannot create recipes";
+  // recipes.textContent="cannot create recipes";
+  finalIngredients.forEach(recipe=>{
+    async function getData(){
+    try{
+     // const ingredientQuery=finalIngredients.join(',');
+      const response = await fetch(
+        `https://api.api-ninjas.com/v2/recipe?title=${recipe}`, 
+        {
+          method: "GET",
+          headers: {
+            "X-Api-Key": "28Kq0DSzK6o1k7NRRY2EXQ==dXLDuiQ8qVlaZaXE" 
+          }
+        }
+
+);
+      const data=await response.json();
+      // console.log(data);
+      const div=document.createElement('div');
+      div.textContent=JSON.stringify(data);
+      recipes.appendChild(div);
+    }catch(error){
+      console.log('error fetching data',error);
+    }
+  }
+  getData();
+  })
 }
 })
 

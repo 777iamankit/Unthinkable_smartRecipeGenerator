@@ -6,9 +6,16 @@
   <link rel="stylesheet" href="userInput/userInput.css">
 </head>
 <body>
+  
+
   <div class="container">
+     
     <div class="selectedIngredients">
+        <img id="previewImg" src="" alt="" style="display:none; width:40px; height:40px; object-fit:cover; border-radius:8px; margin-right:8px;">
+
       <input type="text" id="ingredientInput" placeholder="Enter Ingredients">
+      <img src="../images/search.png" alt="🔍" class="input-logo">
+      <input type="file" id="fileInput" accept="image/*" style="display:none;">
     </div>
     
     <button class="dietry-pref">add dietry preferences</button>
@@ -63,5 +70,6 @@
   <script type="module" src="../outputGeneration/recipeGenerations.js"></script>
   <script type="module" src="../FiltersAndCustomization/filter.js"></script>
   <script type="module" src="../outputGeneration/feedback.js"></script>
+  <script type="module" src="../imageSearch/search.js"></script>
 </body>
 </html>

@@ -52,8 +52,8 @@ for(let i=0;i<recipeJson.length;i++){
    if(flag==true){
      recipes.textContent=recipeJson[i].instructions;
 
-     // recipe from local recipeJson transferering to database
-        const matchedRecipe = recipeJson[i]; // the recipe you found
+     
+        const matchedRecipe = recipeJson[i]; 
 
         fetch('http://localhost:3000/add-recipe', {
           method: 'POST',
@@ -63,7 +63,7 @@ for(let i=0;i<recipeJson.length;i++){
             ingredients: matchedRecipe.ingredients,
             steps: matchedRecipe.instructions,
             nutritionalInfo: `Calories: ${matchedRecipe.nutrition.calories}, Protein: ${matchedRecipe.nutrition.protein}`,
-            cuisine: "Indian" // or "Italian", default
+            cuisine: "Indian" 
           })
         })
         .then(res => res.json())
@@ -77,7 +77,7 @@ for(let i=0;i<recipeJson.length;i++){
 }
 
 if(flag==false){
-  // recipes.textContent="cannot create recipes";
+  
   finalIngredients.forEach(recipe=>{
     async function getData(){
     try{

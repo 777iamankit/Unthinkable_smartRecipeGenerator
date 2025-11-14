@@ -3,10 +3,19 @@ const Path=require('path');
 const app=express();
 const mongoose=require('mongoose');
 const recipe=require('./model/recipeSchema');
+const bodyParser=require('body-parser');
+const processImageRouter = require("./routes/imageSearch");
 
-app.use(express.json());
+app.use(express.json({ limit: "20mb" }));
+app.use(express.urlencoded({ limit: "20mb", extended: true }));
+
+
+app.use(bodyParser.json({ limit: "20mb" }));
+app.use(bodyParser.urlencoded({ limit: "20mb", extended: true }));
+
 
 app.use(express.static(Path.join(__dirname,"public")));
+app.use("/api", processImageRouter);
 
 app.get('/',(req,res)=>{
   res.sendFile(Path.join(__dirname,"public","userInput","userInput.html"));

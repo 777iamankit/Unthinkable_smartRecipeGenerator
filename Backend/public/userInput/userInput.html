@@ -35,12 +35,33 @@
     <div id="ingredientList"></div>
     <button class="recipe-generate">Click to generate Recipe</button>
   </div>
-  <div class="container" id="recipes"></div>
+  <div id="feedback-area">
+    
+  <div class="container" id="recipes" ><button id="saveBtn">💾</button></div>
+ 
 
+        
+<div id="ratingOverlay" class="overlay">
+  <div class="rating-box">
+    <h2>Rate Your Recipe</h2>
+
+    <form id="rateForm">
+      <div class="rating">
+        <input type="radio" id="star5" name="rating" value="5"><label for="star5"></label>
+        <input type="radio" id="star4" name="rating" value="4"><label for="star4"></label>
+        <input type="radio" id="star3" name="rating" value="3"><label for="star3"></label>
+        <input type="radio" id="star2" name="rating" value="2"><label for="star2"></label>
+        <input type="radio" id="star1" name="rating" value="1"><label for="star1"></label>
+      </div>
+    </form>
+  </div>
+</div>
+  </div>
 
   <script type="module"  src="userInput/userInput.js"></script>
   <script src="userInput/dietryPref.js"></script>
   <script type="module" src="../outputGeneration/recipeGenerations.js"></script>
   <script type="module" src="../FiltersAndCustomization/filter.js"></script>
+  <script type="module" src="../outputGeneration/feedback.js"></script>
 </body>
 </html>

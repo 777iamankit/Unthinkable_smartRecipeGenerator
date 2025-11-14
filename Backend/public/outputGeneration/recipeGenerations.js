@@ -29,8 +29,8 @@ const recipeJson=[
   }
 ]
 
-
-
+const saveBtn=document.querySelector('#saveBtn');
+import { feedback } from "./feedback.js";
 import { finalIngredients } from "../userInput/userInput.js";
 const recipes=document.querySelector('#recipes');
 const recipeGenerate=document.querySelector('.recipe-generate');
@@ -49,8 +49,30 @@ for(let i=0;i<recipeJson.length;i++){
       flag=false;
     }
    }
-   if(flag==true)
-   recipes.textContent=recipeJson[i].instructions;
+   if(flag==true){
+     recipes.textContent=recipeJson[i].instructions;
+
+     // recipe from local recipeJson transferering to database
+        const matchedRecipe = recipeJson[i]; // the recipe you found
+
+        fetch('http://localhost:3000/add-recipe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            title: matchedRecipe.name,
+            ingredients: matchedRecipe.ingredients,
+            steps: matchedRecipe.instructions,
+            nutritionalInfo: `Calories: ${matchedRecipe.nutrition.calories}, Protein: ${matchedRecipe.nutrition.protein}`,
+            cuisine: "Indian" // or "Italian", default
+          })
+        })
+        .then(res => res.json())
+        .then(data => console.log("Saved to DB:", data))
+        .catch(err => console.error(err));
+
+
+
+   }
  
 }
 
@@ -91,6 +113,26 @@ if(flag==false){
           break;
         }
       }
+
+      if(index!=-1){
+        const apiRecipe = data[index];
+
+        fetch('http://localhost:3000/add-recipe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            title: apiRecipe.title,
+            ingredients: apiRecipe.ingredients.map(i => i.name || i), // API sometimes returns objects
+            steps: apiRecipe.instructions,
+            nutritionalInfo: `Calories: ${apiRecipe.nutrition?.calories || 'N/A'}`,
+            cuisine: "Indian"
+          })
+        })
+        .then(res => res.json())
+        .then(data => console.log("API recipe saved:", data))
+        .catch(err => console.error(err));
+
+      }
       
       const div1=document.createElement('div');
       const div2=document.createElement('div');
@@ -105,13 +147,27 @@ if(flag==false){
       div2.textContent=JSON.stringify(data[index].instructions);
       recipes.appendChild(div1);
       recipes.appendChild(div2);
+      saveBtn.style.display="block";
+      saveBtn.addEventListener('click',()=>{
+        alert("saved succesfully");
+      })
+      setTimeout(()=>{
+        feedback();
+        
+      },5000);
       console.log(data);
     }catch(error){
       console.log('error fetching data',error);
     }
   }
   getData();
+
+ 
   })
 }
+
+
+
+
 })
 

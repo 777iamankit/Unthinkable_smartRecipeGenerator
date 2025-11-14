@@ -144,3 +144,91 @@ button.filter-btn:hover {
   z-index: 1000;
   margin-top: 5px; 
 }
+
+
+/* Popup Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: none;         /* hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Rating Box */
+.rating-box {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  animation: popIn 0.3s ease;
+  width: 350px;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.rating-box h2 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  color: #333;
+}
+
+/* Star Rating */
+.rating {
+  direction: rtl;
+  display: inline-flex;
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  font-size: 40px;
+  color: #ccc;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.rating label::before {
+  content: "★";
+}
+
+/* When selected */
+.rating input:checked ~ label {
+  color: gold;
+}
+
+/* Hover effect */
+.rating label:hover,
+.rating label:hover ~ label {
+  color: orange;
+}
+
+
+#recipes {
+  position: relative;
+}
+
+#saveBtn {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #28a745;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}

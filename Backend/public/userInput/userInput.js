@@ -23,7 +23,9 @@ const ingredientList=document.querySelector('#ingredientList');
 const selectedIngredients=document.querySelector('.selectedIngredients');
 
 // showing options for ingredients
-ingredientInput.addEventListener("click",()=>{
+ingredientInput.addEventListener("click",(e)=>{
+  e.stopPropagation();
+  ingredientList.style.display="block";
   ingredientList.textContent="";
   ingredients.forEach(item=>{
     const div=document.createElement('div');
@@ -51,5 +53,11 @@ ingredientInput.addEventListener('keydown',(e)=>{
         selectedIngredients.appendChild(ingredientDiv);
       }
     })
+
+document.addEventListener('click',(e)=>{
+  if(!ingredientList.contains(e.target)){
+    ingredientList.style.display="none";
+  }
+})
 
 // console.log(finalIngredients);

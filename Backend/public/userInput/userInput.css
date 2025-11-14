@@ -93,3 +93,54 @@
       margin-bottom: 5px;
       border-radius: 5px;
     }
+
+    /* Buttons container for alignment */
+button.dietry-pref {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  padding: 8px 12px;
+  font-size: 14px;
+  background-color: #4CAF50; /* green button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.dietry-pref:hover {
+  background-color: #45a049;
+}
+
+/* Filter icon button */
+button.dietry-pref img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+/* Optional: separate style for filter button */
+button.filter-btn {
+  background-color: #2196F3; /* blue */
+  padding: 8px;
+}
+
+button.filter-btn:hover {
+  background-color: #1976D2;
+}
+
+
+#filter-option{
+  position: absolute;       /* dropdown effect */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 10px 0;
+  width: 200px;
+  display: none;            /* hidden by default */
+  z-index: 1000;
+  margin-top: 5px; 
+}

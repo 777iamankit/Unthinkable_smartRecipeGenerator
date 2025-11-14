@@ -72,9 +72,40 @@ if(flag==false){
 );
       const data=await response.json();
       // console.log(data);
-      const div=document.createElement('div');
-      div.textContent=JSON.stringify(data);
-      recipes.appendChild(div);
+
+      let index=-1;
+      for(let i=0;i<data.length;i++){
+        let flag=true;
+        const ingrArray=data[i].ingredients.map(item=>item.toLowerCase().trim());
+        for(let j=0;j<finalIngredients.length;j++){
+          const userIngr = finalIngredients[j].toLowerCase().trim();
+         const found = ingrArray.some(item => item.includes(userIngr));
+
+          if(!found){
+            flag=false;
+            break;
+          }
+        }
+        if(flag==true){
+          index=i;
+          break;
+        }
+      }
+      
+      const div1=document.createElement('div');
+      const div2=document.createElement('div');
+      if(index==-1){
+        div1.textContent="Cannot fetch matching recipes";
+        // console.log(data);
+        recipes.appendChild(div1);
+        return;
+      }
+      
+      div1.textContent=JSON.stringify(data[index].title);
+      div2.textContent=JSON.stringify(data[index].instructions);
+      recipes.appendChild(div1);
+      recipes.appendChild(div2);
+      console.log(data);
     }catch(error){
       console.log('error fetching data',error);
     }

@@ -35,6 +35,9 @@ import { finalIngredients } from "../userInput/userInput.js";
 const recipes=document.querySelector('#recipes');
 const recipeGenerate=document.querySelector('.recipe-generate');
 
+
+
+
 recipeGenerate.addEventListener('click',function(){
   let resultIndex=0;
 let flag=true;
@@ -171,3 +174,6 @@ if(flag==false){
 
 })
 
+
+
+//animation in output

@@ -27,7 +27,7 @@ Save & rate recipes for personalized recommendations.
 Mobile-responsive and clean UI.
 Database: 20+ predefined recipes from various cuisines.
 
-Live Deployment: [Insert Hosting Link]
+Live Deployment: https://smartrecipegenerator-4uqx.onrender.com
 
 
 
@@ -37,10 +37,10 @@ Technologies Used
 
 Frontend: HTML, CSS, JavaScript
 Backend: Node.js, Express.js
-Database: MongoDB
+Database: MongoDB Atlas
 AI: Google Gemini API for image-based ingredient recognition
 
-Hosting: Netlify / Vercel / Heroku
+Hosting: Render
 
 
 
